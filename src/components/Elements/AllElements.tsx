@@ -73,7 +73,8 @@ const ElementsContainer = styled.div`
 	overflow-y: auto;
 	overflow-x: hidden;
 	width: 100%;
-	height: 100%;
+	flex: 1;
+	min-height: 0;
 	align-items: center;
 	scroll-behavior: smooth;
 
@@ -101,7 +102,8 @@ const EmptyState = styled.div`
 	align-items: center;
 	justify-content: center;
 	width: 100%;
-	height: 100%;
+	flex: 1;
+	min-height: 0;
 `;
 
 const EmptyText = styled.p`

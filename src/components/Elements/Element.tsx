@@ -49,7 +49,10 @@ export const Element: React.FC<ElementProps> = ({
 				$isSelected={isSelected}
 				$isHovered={isHovered}
 				data-index={dragIndex}>
-				<ElementImage src={element.imageUrl} alt={`Element ${element.order + 1}`} />
+				<ElementImage
+					src={element.imageUrl}
+					alt={`Element ${element.order + 1}`}
+				/>
 				{isHovered && (
 					<DeleteButton
 						onClick={handleDelete}
@@ -70,11 +73,10 @@ const ElementContainer = styled.div<{
 	position: relative;
 	min-width: 120px;
 	width: 120px;
-	height: 90px;
+	height: 120px;
 	border-radius: 8px;
-	overflow: hidden;
 	cursor: grab;
-	transition: all 0.2s ease;
+	transition: all 0.28s ease;
 	border: 2px solid
 		${({ $isSelected }) =>
 			$isSelected ? 'rgba(255, 255, 255, 0.8)' : 'transparent'};
@@ -103,10 +105,10 @@ const ElementImage = styled.img`
 
 const DeleteButton = styled.button`
 	position: absolute;
-	top: 4px;
+	top: 6px;
 	right: 4px;
-	width: 24px;
-	height: 24px;
+	width: 20px;
+	height: 20px;
 	border-radius: 50%;
 	border: none;
 	background: rgba(255, 0, 0, 0.8);
@@ -125,4 +127,3 @@ const DeleteButton = styled.button`
 		background: rgba(255, 0, 0, 1);
 	}
 `;
-
