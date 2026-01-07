@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import React from 'react';
 
 import { AllElements } from './AllElements';
-import { ProjectSettingsProvider } from './ProjectSettingsContext';
 import { ProjectSettingsPanel } from './ProjectSettingsPanel';
 
 interface ElementsSectionProps {
@@ -14,13 +13,11 @@ export const ElementsSection: React.FC<ElementsSectionProps> = ({
 	children,
 }) => {
 	return (
-		<ProjectSettingsProvider>
-			<ElementsContainer>
-				<AllElements />
-				<ProjectSettingsPanel />
-				{children}
-			</ElementsContainer>
-		</ProjectSettingsProvider>
+		<ElementsContainer>
+			<AllElements />
+			<ProjectSettingsPanel />
+			{children}
+		</ElementsContainer>
 	);
 };
 

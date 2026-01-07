@@ -2,29 +2,38 @@ import styled from 'styled-components';
 
 import React from 'react';
 
-import { useElements } from '../Elements/useElements';
+import { useProjectSettings } from '../Elements/useProjectSettings';
+import { useFrames } from '../Frames/useFrames';
 
 export const DisplaySection: React.FC = () => {
-	const { elements, selectedElementId } = useElements();
-	const selectedElement = elements.find(
-		element => element.id === selectedElementId
-	);
+	const { frames, selectedFrameId } = useFrames();
+	const { width, height } = useProjectSettings();
+	const selectedFrame = frames.find(frame => frame.id === selectedFrameId);
 
-	if (!selectedElement) {
+	if (!selectedFrame) {
 		return (
 			<DisplayContainer>
 				<EmptyState>
-					<EmptyText>No element selected</EmptyText>
+					<EmptyText>No frame selected</EmptyText>
 				</EmptyState>
 			</DisplayContainer>
 		);
 	}
 
+	// Calculate safe scale factor to ensure frame is visible and larger
+	// Minimum display size of 200px, or scale up by 4x if already larger
+	const minDisplaySize = 200;
+	const scaleFactor = Math.max(minDisplaySize / Math.min(width, height), 4);
+	const scaledWidth = width * scaleFactor;
+	const scaledHeight = height * scaleFactor;
+
 	return (
 		<DisplayContainer>
 			<DisplayImage
-				src={selectedElement.imageUrl}
-				alt={`Element ${selectedElement.order + 1}`}
+				src={selectedFrame.imageUrl}
+				alt={`Frame ${selectedFrame.order + 1}`}
+				$width={scaledWidth}
+				$height={scaledHeight}
 			/>
 		</DisplayContainer>
 	);
@@ -34,19 +43,22 @@ const DisplayContainer = styled.div`
 	position: fixed;
 	top: 0;
 	left: 5%;
-	right: 5%;
-	bottom: 0;
+	right: 15%;
+	bottom: 25vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	overflow: hidden;
 `;
 
-const DisplayImage = styled.img`
-	max-width: 100%;
-	max-height: 100%;
+const DisplayImage = styled.img<{ $width: number; $height: number }>`
+	width: ${({ $width }) => $width}px;
+	height: ${({ $height }) => $height}px;
+	max-width: 90%;
+	max-height: 90%;
 	object-fit: contain;
 	background: transparent;
+	image-rendering: pixelated;
 `;
 
 const EmptyState = styled.div`
