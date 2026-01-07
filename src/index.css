@@ -12,11 +12,11 @@ body {
     sans-serif;
   line-height: 1.6;
   color: #333;
-  background-color: #ffffff;
+  background-color: #0e0303;
 }
 
 #root {
-  min-height: 110vh;
+  min-height: 100vh;
 }
 
 /* Custom Scrollbar Styles */

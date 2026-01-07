@@ -1,2 +1,2 @@
 // Export all assets here
-export {};
+export { default as DownloadIcon } from './download.svg?react';
