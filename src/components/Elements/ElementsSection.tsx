@@ -30,7 +30,7 @@ const ElementsContainer = styled.div`
 	top: 0;
 	height: 100vh;
 	width: 15%;
-	min-width: 90px;
+	min-width: 140px;
 	max-width: 270px;
 	display: flex;
 	flex-direction: column;

@@ -46,7 +46,7 @@ const DisplayImage = styled.img`
 	max-width: 100%;
 	max-height: 100%;
 	object-fit: contain;
-	background: white;
+	background: transparent;
 `;
 
 const EmptyState = styled.div`

@@ -32,8 +32,11 @@ export const Element: React.FC<ElementProps> = ({
 		onDelete();
 	};
 
+	const fileName = element.metadata?.fileName || `Element ${element.order + 1}`;
+
 	return (
-		<>
+		<ElementWrapper>
+			<FileNameLabel>{fileName}</FileNameLabel>
 			<ElementContainer
 				draggable
 				onDragStart={onDragStart}
@@ -62,9 +65,27 @@ export const Element: React.FC<ElementProps> = ({
 					</DeleteButton>
 				)}
 			</ElementContainer>
-		</>
+		</ElementWrapper>
 	);
 };
+
+const ElementWrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	align-items: flex-start;
+`;
+
+const FileNameLabel = styled.div`
+	color: rgba(255, 255, 255, 0.5);
+	font-size: 11px;
+	margin-bottom: 3px;
+	padding: 0 2px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 100%;
+`;
 
 const ElementContainer = styled.div<{
 	$isSelected: boolean;
@@ -72,8 +93,8 @@ const ElementContainer = styled.div<{
 }>`
 	position: relative;
 	min-width: 120px;
-	width: 120px;
-	height: 120px;
+	width: 170px;
+	height: 80px;
 	border-radius: 8px;
 	cursor: grab;
 	transition: all 0.28s ease;
