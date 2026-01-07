@@ -13,9 +13,9 @@ interface ProjectSettingsProviderProps {
 export const ProjectSettingsProvider: React.FC<
 	ProjectSettingsProviderProps
 > = ({ children }) => {
-	const [width, setWidthState] = useState<number>(24);
-	const [height, setHeightState] = useState<number>(24);
-	const [fps, setFpsState] = useState<number>(24);
+	const [width, setWidthState] = useState<number>(32);
+	const [height, setHeightState] = useState<number>(32);
+	const [fps, setFpsState] = useState<number>(12);
 
 	const setWidth = useCallback((newWidth: number) => {
 		if (newWidth >= 1 && newWidth <= 10000) {
