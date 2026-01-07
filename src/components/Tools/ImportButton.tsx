@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
-import { DownloadIcon } from '../assets';
+import { ImportIcon } from '../../assets';
 
-export const DownloadButton = () => {
-	const onDownloadButtonPressed = () => {
-		console.log('Downloading!');
+export const ImportButton = () => {
+	const onImportButtonPressed = () => {
+		console.log('Importing!');
 	};
 
 	return (
-		<Button onClick={onDownloadButtonPressed} type="button">
-			<DownloadIcon />
+		<Button onClick={onImportButtonPressed} type="button">
+			<ImportIcon />
 		</Button>
 	);
 };

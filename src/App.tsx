@@ -1,7 +1,7 @@
 import './App.css';
-import { DownloadButton } from './components/DownloadButton';
-import { ImportButton } from './components/ImportButton';
-import { Tools } from './components/Tools';
+import { DownloadButton } from './components/Tools/DownloadButton';
+import { ImportButton } from './components/Tools/ImportButton';
+import { Tools } from './components/Tools/Tools';
 
 function App() {
 	return (
