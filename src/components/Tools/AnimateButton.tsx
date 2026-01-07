@@ -1,10 +1,9 @@
-import styled from 'styled-components';
-
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { PauseIcon, PlayIcon } from '../../assets';
 import { useProjectSettings } from '../Elements/useProjectSettings';
 import { useFrames } from '../Frames/useFrames';
+import { ToolButton } from '../shared/styled';
 
 export const AnimateButton = () => {
 	const { frames, selectFrame } = useFrames();
@@ -13,10 +12,15 @@ export const AnimateButton = () => {
 	const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 	const currentFrameIndexRef = useRef<number>(0);
 
+	// Memoize sorted frames to avoid recalculating on every interval tick
+	const sortedFrames = useMemo(
+		() => [...frames].sort((a, b) => a.order - b.order),
+		[frames]
+	);
+
 	useEffect(() => {
-		if (isPlaying && frames.length > 0) {
+		if (isPlaying && sortedFrames.length > 0) {
 			const interval = setInterval(() => {
-				const sortedFrames = [...frames].sort((a, b) => a.order - b.order);
 				if (sortedFrames.length > 0) {
 					const currentFrame = sortedFrames[currentFrameIndexRef.current];
 					selectFrame(currentFrame.id);
@@ -38,16 +42,15 @@ export const AnimateButton = () => {
 				intervalRef.current = null;
 			}
 		}
-	}, [isPlaying, frames, fps, selectFrame]);
+	}, [isPlaying, sortedFrames, fps, selectFrame]);
 
 	const handleToggle = () => {
-		if (frames.length === 0) return;
+		if (sortedFrames.length === 0) return;
 
 		if (isPlaying) {
 			setIsPlaying(false);
 		} else {
 			// Reset to first frame when starting
-			const sortedFrames = [...frames].sort((a, b) => a.order - b.order);
 			if (sortedFrames.length > 0) {
 				currentFrameIndexRef.current = 0;
 				selectFrame(sortedFrames[0].id);
@@ -57,30 +60,11 @@ export const AnimateButton = () => {
 	};
 
 	return (
-		<Button onClick={handleToggle} type="button" disabled={frames.length === 0}>
+		<ToolButton
+			onClick={handleToggle}
+			type="button"
+			disabled={sortedFrames.length === 0}>
 			{isPlaying ? <PauseIcon /> : <PlayIcon />}
-		</Button>
+		</ToolButton>
 	);
 };
-
-const Button = styled.button`
-	width: 100%;
-	height: 100%;
-	border: none;
-	border-radius: 15%;
-	cursor: pointer;
-	padding: 0;
-	background-color: transparent;
-	color: rgba(255, 255, 255, 0.6);
-	overflow: hidden;
-	transition: background-color 0.28s ease-in;
-
-	&:hover:not(:disabled) {
-		background-color: rgba(60, 60, 60, 0.5);
-	}
-
-	&:disabled {
-		cursor: not-allowed;
-		opacity: 0.5;
-	}
-`;

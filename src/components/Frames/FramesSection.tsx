@@ -22,7 +22,7 @@ const FramesContainer = styled.div`
 	position: fixed;
 	bottom: 0;
 	left: 5%;
-	right: 15%;
+	right: max(15%, 140px);
 	height: 25vh;
 	display: flex;
 	flex-direction: column;

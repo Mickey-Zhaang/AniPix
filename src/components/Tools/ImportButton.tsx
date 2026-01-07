@@ -5,6 +5,7 @@ import React, { useRef } from 'react';
 import { ImportIcon } from '../../assets';
 import type { Element } from '../Elements/deElement';
 import { useElements } from '../Elements/useElements';
+import { ToolButton } from '../shared/styled';
 
 export const ImportButton = () => {
 	const fileInputRef = useRef<HTMLInputElement>(null);
@@ -49,30 +50,13 @@ export const ImportButton = () => {
 				multiple
 				onChange={handleFileSelect}
 			/>
-			<Button onClick={onImportButtonPressed} type="button">
+			<ToolButton onClick={onImportButtonPressed} type="button">
 				<ImportIcon />
-			</Button>
+			</ToolButton>
 		</>
 	);
 };
 
 const HiddenInput = styled.input`
 	display: none;
-`;
-
-const Button = styled.button`
-	width: 100%;
-	height: 100%;
-	border: none;
-	border-radius: 15%;
-	cursor: pointer;
-	padding: 0;
-	background-color: transparent;
-	color: rgba(255, 255, 255, 0.6);
-	overflow: hidden;
-	transition: background-color 0.28s ease-in;
-
-	&:hover {
-		background-color: rgba(60, 60, 60, 0.5);
-	}
 `;

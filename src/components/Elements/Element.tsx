@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import React, { useState } from 'react';
 
+import { DeleteButtonBase } from '../shared/styled';
 import type { Element as ElementType } from './deElement';
 
 interface ElementProps {
@@ -60,7 +61,11 @@ export const Element: React.FC<ElementProps> = ({
 					<DeleteButton
 						onClick={handleDelete}
 						type="button"
-						aria-label="Delete element">
+						aria-label="Delete element"
+						$size={20}
+						$top={6}
+						$right={4}
+						$fontSize={18}>
 						×
 					</DeleteButton>
 				)}
@@ -124,27 +129,4 @@ const ElementImage = styled.img`
 	pointer-events: none;
 `;
 
-const DeleteButton = styled.button`
-	position: absolute;
-	top: 6px;
-	right: 4px;
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-	border: none;
-	background: rgba(255, 0, 0, 0.8);
-	color: white;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 18px;
-	font-weight: bold;
-	line-height: 1;
-	transition: background 0.2s ease;
-	z-index: 10;
-
-	&:hover {
-		background: rgba(255, 0, 0, 1);
-	}
-`;
+const DeleteButton = DeleteButtonBase;

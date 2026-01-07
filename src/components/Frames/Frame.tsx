@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import React, { useState } from 'react';
 
+import { DeleteButtonBase } from '../shared/styled';
 import type { Frame as FrameType } from './deFrame';
 
 interface FrameProps {
@@ -66,7 +67,11 @@ export const Frame: React.FC<FrameProps> = ({
 				<DeleteButton
 					onClick={handleDelete}
 					type="button"
-					aria-label="Delete frame">
+					aria-label="Delete frame"
+					$size={14}
+					$top={2}
+					$right={2}
+					$fontSize={10}>
 					×
 				</DeleteButton>
 			)}
@@ -114,27 +119,4 @@ const FrameImage = styled.img`
 	pointer-events: none;
 `;
 
-const DeleteButton = styled.button`
-	position: absolute;
-	top: 2px;
-	right: 2px;
-	width: 14px;
-	height: 14px;
-	border-radius: 50%;
-	border: none;
-	background: rgba(255, 0, 0, 0.8);
-	color: white;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 10px;
-	font-weight: bold;
-	line-height: 1;
-	transition: background 0.2s ease;
-	z-index: 10;
-
-	&:hover {
-		background: rgba(255, 0, 0, 1);
-	}
-`;
+const DeleteButton = DeleteButtonBase;

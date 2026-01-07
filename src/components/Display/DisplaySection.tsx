@@ -4,6 +4,7 @@ import React from 'react';
 
 import { useProjectSettings } from '../Elements/useProjectSettings';
 import { useFrames } from '../Frames/useFrames';
+import { EmptyState, EmptyText } from '../shared/styled';
 
 export const DisplaySection: React.FC = () => {
 	const { frames, selectedFrameId } = useFrames();
@@ -14,7 +15,7 @@ export const DisplaySection: React.FC = () => {
 		return (
 			<DisplayContainer>
 				<EmptyState>
-					<EmptyText>No frame selected</EmptyText>
+					<EmptyTextLarge>No frame selected</EmptyTextLarge>
 				</EmptyState>
 			</DisplayContainer>
 		);
@@ -57,20 +58,12 @@ const DisplayImage = styled.img<{ $width: number; $height: number }>`
 	max-width: 90%;
 	max-height: 90%;
 	object-fit: contain;
+	border-radius: 10px;
+	border: 2px solid rgba(255, 255, 255, 0.2);
 	background: transparent;
 	image-rendering: pixelated;
 `;
 
-const EmptyState = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	height: 100%;
-`;
-
-const EmptyText = styled.p`
-	color: rgba(255, 255, 255, 0.5);
+const EmptyTextLarge = styled(EmptyText)`
 	font-size: 18px;
-	margin: 0;
 `;

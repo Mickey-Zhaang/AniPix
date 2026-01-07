@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import React, { useState } from 'react';
 
+import { EmptyState, EmptyText } from '../shared/styled';
 import { Element } from './Element';
 import { useElements } from './useElements';
 
@@ -40,9 +41,9 @@ export const AllElements: React.FC = () => {
 
 	if (elements.length === 0) {
 		return (
-			<EmptyState>
+			<EmptyStateFlex>
 				<EmptyText>No elements yet. Import images to get started.</EmptyText>
-			</EmptyState>
+			</EmptyStateFlex>
 		);
 	}
 
@@ -97,17 +98,7 @@ const ElementsContainer = styled.div`
 	}
 `;
 
-const EmptyState = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
+const EmptyStateFlex = styled(EmptyState)`
 	flex: 1;
 	min-height: 0;
-`;
-
-const EmptyText = styled.p`
-	color: rgba(255, 255, 255, 0.5);
-	font-size: 14px;
-	margin: 0;
 `;

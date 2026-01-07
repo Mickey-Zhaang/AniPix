@@ -30,6 +30,7 @@ const ToolsContainer = styled.div`
 	padding: 8px;
 	align-items: center;
 	overflow: hidden;
+	border-right: 1px solid rgba(255, 255, 255, 0.1);
 `;
 
 const ToolItem = styled.div`

@@ -35,4 +35,5 @@ const ElementsContainer = styled.div`
 	background: black;
 	padding: 8px;
 	align-items: center;
+	border-left: 1px solid rgba(255, 255, 255, 0.1);
 `;

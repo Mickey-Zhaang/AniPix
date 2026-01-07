@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import React, { useState } from 'react';
 
 import { useProjectSettings } from '../Elements/useProjectSettings';
+import { EmptyState, EmptyText } from '../shared/styled';
 import { Frame } from './Frame';
 import { useFrames } from './useFrames';
 
@@ -96,16 +97,3 @@ const FramesContainer = styled.div`
 	}
 `;
 
-const EmptyState = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	height: 100%;
-`;
-
-const EmptyText = styled.p`
-	color: rgba(255, 255, 255, 0.5);
-	font-size: 14px;
-	margin: 0;
-`;
