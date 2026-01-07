@@ -57,6 +57,7 @@ rules:
   - For React components:
     - Use functional components with hooks
     - Follow the established component structure
+    - imports > component > styled components/styling
     - Include proper prop types
     - Handle loading, error, and empty states
     - Implement proper cleanup in useEffect
