@@ -1,0 +1,278 @@
+---
+description: Guidelines for AI assistants working with this codebase
+globs: '**/*'
+alwaysApply: true
+---
+
+rules:
+
+- name: 'AI Codebase Analysis'
+  description: 'Guidelines for AI to analyze and understand the codebase'
+  files: '\*_/_'
+  instructions: |
+  - Before making any changes, explore the codebase structure:
+    - Understand the monorepo architecture (apps/, libs/)
+    - Identify key components and their relationships
+    - Analyze existing patterns and conventions
+    - Look for similar implementations before creating new ones
+
+  - When analyzing code:
+    - Trace data flow through the application
+    - Identify state management patterns
+    - Understand component hierarchies
+    - Recognize API integration patterns
+    - Identify error handling strategies
+    - Examine how types are defined and used
+
+  - When exploring new areas:
+    - Start with high-level directories
+    - Look for README files and documentation
+    - Examine test files to understand expected behavior
+    - Check for configuration files
+    - Identify entry points and main components
+    - Look for patterns in similar modules
+
+  - Understand the project's tech stack:
+    - React for frontend components
+    - TypeScript for type safety
+    - Vite for build tooling
+    - Styled-components for styling
+    - Storybook for component documentation
+    - Vitest for testing
+
+- name: 'AI Code Generation'
+  description: 'Guidelines for AI to generate high-quality code'
+  files: '\*_/_'
+  instructions: |
+  - When generating code:
+    - Follow existing patterns in similar files
+    - Use consistent naming conventions
+    - Include proper TypeScript types
+    - Add appropriate error handling
+    - Include necessary imports
+    - Add JSDoc comments for public APIs
+    - Follow the project's code style
+    - Ensure code is minimal and focused
+
+  - For React components:
+    - Use functional components with hooks
+    - Follow the established component structure
+    - Include proper prop types
+    - Handle loading, error, and empty states
+    - Implement proper cleanup in useEffect
+    - Consider accessibility
+    - Follow performance best practices
+    - Use styled-components for styling
+    - Follow the project's component patterns
+
+  - For component documentation:
+    - Use Storybook for component showcase
+    - Document props and their types
+    - Provide usage examples
+    - Include accessibility considerations
+    - Document component variants
+    - Follow established documentation patterns
+
+  - For testing:
+    - Write unit tests with Vitest
+    - Test component behavior and interactions
+    - Test edge cases and error conditions
+    - Use proper mocking strategies
+    - Follow established testing patterns
+
+- name: 'AI Debugging Assistance'
+  description: 'Guidelines for AI to assist with debugging'
+  files: '\*_/_'
+  instructions: |
+  - When debugging:
+    - Analyze the problem systematically
+    - Consider edge cases and error conditions
+    - Look for similar patterns in the codebase
+    - Check for common issues first
+    - Verify assumptions with console logs
+    - Use breakpoints for complex issues
+    - Consider race conditions and async issues
+    - Look for type mismatches
+
+  - For frontend issues:
+    - Check for React rendering issues
+    - Verify state management
+    - Look for missing dependencies in useEffect
+    - Check for performance bottlenecks
+    - Verify API calls and data handling
+    - Check for CSS/styling issues
+    - Verify browser compatibility
+    - Check for memory leaks
+    - Verify event handling
+
+  - For build and tooling issues:
+    - Check Vite configuration
+    - Verify TypeScript compilation
+    - Look for dependency conflicts
+    - Check for build performance issues
+    - Verify Storybook configuration
+    - Check for linting and formatting issues
+
+- name: 'AI Code Review'
+  description: 'Guidelines for AI to review code'
+  files: '\*_/_'
+  instructions: |
+  - When reviewing code:
+    - Check for adherence to project standards
+    - Look for potential bugs and edge cases
+    - Verify error handling
+    - Check for security issues
+    - Verify performance considerations
+    - Look for code duplication
+    - Check for proper testing
+    - Verify maintainability
+    - Check for unnecessary complexity
+
+  - For TypeScript code:
+    - Verify type safety
+    - Check for proper use of generics
+    - Look for any type
+    - Verify null/undefined handling
+    - Check for proper interface/type definitions
+    - Verify proper use of type guards
+    - Check for consistent type naming
+    - Verify type exports/imports
+
+  - For React code:
+    - Check for proper component structure
+    - Verify hook dependencies
+    - Look for performance issues
+    - Check for accessibility
+    - Verify proper state management
+    - Check for proper cleanup
+    - Verify proper error boundaries
+    - Check for proper prop drilling
+    - Verify component reusability
+
+  - For component code:
+    - Verify component structure and organization
+    - Check for proper prop types
+    - Verify accessibility implementation
+    - Check for performance optimizations
+    - Verify error handling
+    - Check for proper testing coverage
+
+- name: 'AI Documentation Assistance'
+  description: 'Guidelines for AI to assist with documentation'
+  files: '\*_/_'
+  instructions: |
+  - When documenting code:
+    - Use JSDoc for functions and interfaces
+    - Document complex algorithms
+    - Explain business logic
+    - Document API endpoints
+    - Create usage examples
+    - Document configuration options
+    - Explain architectural decisions
+    - Keep documentation concise and clear
+    - Update documentation when code changes
+
+  - For component documentation:
+    - Document props and their types
+    - Explain component behavior
+    - Document side effects
+    - Provide usage examples
+    - Document accessibility considerations
+    - Explain performance optimizations
+    - Document known limitations
+    - Include visual examples where appropriate
+    - Document component variants
+
+  - For component documentation:
+    - Document component props and their types
+    - Explain component behavior and usage
+    - Document accessibility features
+    - Provide usage examples
+    - Document component variants
+    - Include visual examples where appropriate
+
+- name: 'AI Interaction Patterns'
+  description: 'Guidelines for AI to interact effectively with users'
+  files: '\*_/_'
+  instructions: |
+  - When responding to users:
+    - Be concise and focused
+    - Provide complete solutions
+    - Explain your reasoning
+    - Offer alternatives when appropriate
+    - Ask clarifying questions when needed
+    - Provide context for your suggestions
+    - Highlight potential issues or trade-offs
+
+  - When suggesting changes:
+    - Explain the rationale behind changes
+    - Highlight the benefits
+    - Mention potential drawbacks
+    - Provide context from the codebase
+    - Reference similar patterns
+    - Suggest tests or validation steps
+    - Consider backward compatibility
+
+  - When answering questions:
+    - Provide accurate information
+    - Reference relevant code
+    - Explain complex concepts clearly
+    - Use examples from the codebase
+    - Acknowledge limitations in your knowledge
+    - Suggest further exploration when appropriate
+    - Provide context for your answers
+
+- name: 'AI Tool Usage'
+  description: 'Guidelines for AI to use tools effectively'
+  files: '\*_/_'
+  instructions: |
+  - When using tools:
+    - Choose the most appropriate tool for the task
+    - Explain why you're using a particular tool
+    - Use tools efficiently
+    - Combine tools when necessary
+    - Interpret tool results accurately
+    - Handle tool errors gracefully
+    - Provide context for tool usage
+
+  - For code exploration:
+    - Use codebase_search for semantic search
+    - Use grep_search for exact pattern matching
+    - Use list_dir to understand directory structure
+    - Use file_search to find specific files
+    - Use read_file to examine file contents
+    - Combine tools to build comprehensive understanding
+
+  - For code modification:
+    - Use edit_file for precise code changes
+    - Use reapply when edits need refinement
+    - Use run_terminal_cmd for testing changes
+    - Use delete_file when necessary
+    - Verify changes with appropriate tools
+    - Test changes thoroughly
+
+- name: 'Project-Specific Knowledge'
+  description: 'Guidelines for AI to leverage project-specific knowledge'
+  files: '\*_/_'
+  instructions: |
+  - Understand key project concepts:
+    - Portfolio is a personal portfolio website
+    - Built with React and TypeScript
+    - Uses modern web technologies
+    - Focuses on showcasing personal work and skills
+
+  - Recognize project-specific patterns:
+    - Component organization and structure
+    - State management approaches
+    - Error handling strategies
+    - Performance optimization techniques
+    - Testing methodologies
+    - Documentation standards
+
+  - Apply project-specific best practices:
+    - Follow established naming conventions
+    - Use project-specific utilities and helpers
+    - Implement error handling according to project standards
+    - Follow project-specific security practices
+    - Use project-specific testing approaches
+    - Follow project-specific documentation standards

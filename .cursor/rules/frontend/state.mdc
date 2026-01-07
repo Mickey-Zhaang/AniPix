@@ -1,0 +1,66 @@
+---
+description: Guidelines for state management
+globs: '**/*.{ts,tsx}'
+alwaysApply: false
+---
+rules:
+  - name: 'State Management Best Practices'
+    description: 'Guidelines for state management in the application'
+    files: '**/*.{ts,tsx}'
+    instructions: |
+      - State management principles:
+        - Keep state as local as possible
+        - Lift state up only when necessary
+        - Use context for widely shared state
+        - Split complex state into smaller pieces
+        - Use appropriate state management for the use case
+        - Document state structure and flow
+
+      - React state management:
+        - Use useState for simple component state
+        - Use useReducer for complex component state
+        - Use context for shared state
+        - Use custom hooks for reusable state logic
+        - Implement proper state initialization
+        - Handle state updates immutably
+        - Avoid redundant state
+
+      - Global state management:
+        - Use context providers for app-wide state
+        - Organize providers in a logical hierarchy
+        - Split context by domain/feature
+        - Implement proper context initialization
+        - Provide helper hooks for context access
+        - Document context usage and patterns
+
+      - State persistence:
+        - Use localStorage for simple persistence
+        - Use IndexedDB for complex/large data
+        - Implement proper state hydration
+        - Handle persistence errors
+        - Implement proper state migration
+        - Use proper serialization/deserialization
+
+      - State synchronization:
+        - Implement proper optimistic updates
+        - Handle conflict resolution
+        - Implement proper error recovery
+        - Use proper loading indicators
+        - Implement proper retry mechanisms
+        - Handle offline scenarios
+
+      - Performance considerations:
+        - Memoize selectors with useMemo
+        - Use context selectors to prevent unnecessary renders
+        - Split context by update frequency
+        - Use proper dependency arrays
+        - Implement proper state normalization
+        - Profile state updates
+
+      - State testing:
+        - Test state initialization
+        - Test state transitions
+        - Test state selectors
+        - Test state persistence
+        - Test state synchronization
+        - Test error handling

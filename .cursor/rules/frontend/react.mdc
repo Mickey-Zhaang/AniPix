@@ -1,0 +1,61 @@
+---
+description: Guidelines for React development
+globs: '**/components/**/*.{tsx,jsx}'
+alwaysApply: false
+---
+rules:
+  - name: 'React Component Structure'
+    description: 'Guidelines for React component organization'
+    files: '**/components/**/*.{tsx,jsx}'
+    instructions: |
+      - Use functional components with TypeScript
+      - Props interface should be named [ComponentName]Props
+      - Keep components focused and single-responsibility
+      - Extract complex logic into custom hooks
+      - Use proper React imports (no * imports)
+      - Implement error boundaries where appropriate
+      - Use React.memo() for performance optimization when needed
+      - Follow component directory structure:
+        - index.tsx: Main component
+        - types.ts: Component types
+        - utils.ts: Helper functions
+        - style.ts: Styled components
+        - hooks.ts: Component-specific hooks
+      - Handle component-level errors appropriately
+      - Ensure accessibility compliance (ARIA labels, roles)
+      - Use Storybook for component development
+      - Implement responsive design patterns
+      - Handle both touch and mouse input appropriately
+      - Follow layout patterns:
+        - Support 'default', 'classic', and 'stacked' layouts
+        - Handle proper layout transitions
+        - Use proper sizing and positioning
+        - Support proper iPad layout modes
+      - Follow UI component patterns:
+        - Use FloatingPanel for floating UIs
+        - Use proper menu structures
+        - Implement proper drag and drop
+        - Handle proper z-indexing
+        - Use proper animation patterns
+      - Follow state management patterns:
+        - Use proper context providers
+        - Handle proper state updates
+        - Implement proper error recovery
+        - Use proper loading states
+      - Follow event handling patterns:
+        - Use proper event delegation
+        - Handle proper cleanup
+        - Use proper event bubbling
+        - Implement proper keyboard shortcuts
+      - Component performance optimization:
+        - Memoize expensive calculations with useMemo
+        - Memoize callback functions with useCallback
+        - Use React.memo for pure components
+        - Avoid unnecessary re-renders
+        - Use virtualization for long lists
+      - Component testing:
+        - Write unit tests for components
+        - Test component behavior
+        - Test component interactions
+        - Test edge cases
+        - Test accessibility

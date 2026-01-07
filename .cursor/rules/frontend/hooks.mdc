@@ -1,0 +1,68 @@
+---
+description: Guidelines for React hooks development
+globs: '**/hooks/**/*.{ts,tsx}'
+alwaysApply: false
+---
+# .cursor/rules/frontend/hooks.yaml
+rules:
+  - name: 'React Hooks Development'
+    description: 'Guidelines for developing custom React hooks'
+    files: '**/hooks/**/*.{ts,tsx}'
+    instructions: |
+      - Follow React hooks naming convention:
+        - Start with 'use' prefix (e.g., useAuth, useData)
+        - Use camelCase naming
+        - Name should reflect the hook's purpose
+
+      - Follow hooks best practices:
+        - Keep hooks focused and single-responsibility
+        - Extract complex logic into smaller hooks
+        - Handle errors gracefully
+        - Implement proper cleanup in useEffect
+        - Use proper dependency arrays
+        - Avoid infinite loops
+        - Return consistent data structures
+
+      - Common hook patterns:
+        - Data fetching hooks (useQuery, useFetch)
+        - State management hooks (useState, useReducer)
+        - Context hooks (useContext)
+        - Lifecycle hooks (useEffect, useLayoutEffect)
+        - Ref hooks (useRef, useImperativeHandle)
+        - Memoization hooks (useMemo, useCallback)
+        - Custom hooks for specific features
+
+      - Hook organization:
+        - Place shared hooks in libs/shared/hooks
+        - Place app-specific hooks in the app's hooks directory
+        - Place component-specific hooks in the component's directory
+        - Group related hooks together
+        - Document hook usage and parameters
+
+      - Hook testing:
+        - Write unit tests for hooks
+        - Test hook behavior
+        - Test hook edge cases
+        - Test hook error handling
+        - Test hook performance
+
+      - Hook documentation:
+        - Document hook parameters
+        - Document hook return values
+        - Document hook side effects
+        - Provide usage examples
+        - Document hook limitations
+
+      - Hook performance:
+        - Memoize expensive calculations
+        - Use proper dependency arrays
+        - Avoid unnecessary re-renders
+        - Use debouncing/throttling when appropriate
+        - Profile hook performance
+
+      - Hook error handling:
+        - Handle errors gracefully
+        - Provide meaningful error messages
+        - Implement error recovery
+        - Log errors appropriately
+        - Use error boundaries when necessary

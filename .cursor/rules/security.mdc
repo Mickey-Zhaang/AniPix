@@ -1,0 +1,81 @@
+---
+description: Guidelines for security across the codebase
+globs: '**/*'
+alwaysApply: false
+---
+rules:
+  - name: 'Security Best Practices'
+    description: 'Guidelines for security across the codebase'
+    files: '**/*'
+    instructions: |
+      - Authentication and authorization:
+        - Implement proper authentication mechanisms
+        - Use proper authorization checks
+        - Implement proper role-based access control
+        - Use proper session management
+        - Implement proper token validation
+        - Document authentication and authorization architecture
+        - Follow established patterns for auth
+
+      - Data protection:
+        - Encrypt sensitive data at rest
+        - Use proper encryption for data in transit
+        - Implement proper key management
+        - Use proper data masking
+        - Implement proper data retention policies
+        - Document data protection measures
+        - Follow established patterns for data protection
+
+      - Input validation and sanitization:
+        - Validate all user inputs
+        - Sanitize inputs to prevent injection attacks
+        - Use proper content security policies
+        - Implement proper file upload validation
+        - Use proper output encoding
+        - Document input validation strategies
+        - Follow established patterns for input handling
+
+      - API security:
+        - Implement proper API authentication
+        - Use proper rate limiting
+        - Implement proper input validation
+        - Use proper error handling
+        - Implement proper logging
+        - Document API security measures
+        - Follow established patterns for API security
+
+      - Frontend security:
+        - Implement proper content security policies
+        - Use proper CSRF protection
+        - Implement proper XSS prevention
+        - Use proper iframe protection
+        - Implement proper client-side validation
+        - Document frontend security measures
+        - Follow established patterns for frontend security
+
+      - Infrastructure security:
+        - Implement proper network security
+        - Use proper firewall rules
+        - Implement proper access control
+        - Use proper secrets management
+        - Implement proper vulnerability scanning
+        - Document infrastructure security measures
+        - Follow established patterns for infrastructure security
+
+      - Security monitoring and incident response:
+        - Implement proper security logging
+        - Use proper intrusion detection
+        - Implement proper alerting
+        - Use proper incident response procedures
+        - Document security monitoring setup
+        - Implement proper security testing
+        - Follow established patterns for security monitoring
+
+      - Compliance and privacy:
+        - Implement proper data privacy measures
+        - Use proper consent management
+        - Implement proper data subject rights
+        - Use proper data protection impact assessments
+        - Document compliance measures
+        - Implement proper audit logging
+        - Follow established patterns for compliance 

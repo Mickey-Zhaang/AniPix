@@ -1,0 +1,69 @@
+---
+description: Guidelines for TypeScript development
+globs: '**/*.{ts,tsx}'
+alwaysApply: false
+---
+rules:
+  - name: 'TypeScript Best Practices'
+    description: 'Guidelines for TypeScript development'
+    files: '**/*.{ts,tsx}'
+    instructions: |
+      - Use strict TypeScript configuration:
+        - Enable strict mode in tsconfig.json
+        - Use strict null checks
+        - Use no implicit any
+        - Use no implicit returns
+        - Use explicit function return types
+
+      - Type definitions:
+        - Use interfaces for object shapes
+        - Use type aliases for unions and complex types
+        - Use enums for fixed sets of values
+        - Use generics for reusable types
+        - Create dedicated type files for shared types
+
+      - Type naming conventions:
+        - Use PascalCase for interfaces, types, and enums
+        - Use descriptive names that reflect the purpose
+        - Suffix interfaces for React props with 'Props'
+        - Suffix interfaces for React state with 'State'
+        - Prefix interfaces for React context with 'Context'
+
+      - Type safety:
+        - Avoid using 'any' type
+        - Use unknown instead of any when type is uncertain
+        - Use type guards to narrow types
+        - Use assertion functions for complex type narrowing
+        - Use discriminated unions for complex type hierarchies
+        - Use readonly for immutable properties
+        - Use const assertions for literal types
+
+      - Type organization:
+        - Place shared types in dedicated type files
+        - Group related types together
+        - Export types that are used across modules
+        - Keep internal types private
+        - Use namespaces sparingly
+
+      - Advanced TypeScript features:
+        - Use mapped types for transforming types
+        - Use conditional types for type logic
+        - Use template literal types for string manipulation
+        - Use utility types (Partial, Required, Pick, etc.)
+        - Use type inference when appropriate
+        - Use type predicates for custom type guards
+
+      - TypeScript with React:
+        - Use React.FC sparingly (prefer explicit props interface)
+        - Define prop types as interfaces
+        - Use children prop type correctly
+        - Type event handlers properly
+        - Type refs correctly
+        - Use proper types for context
+
+      - TypeScript with APIs:
+        - Define request and response types
+        - Use zod or similar for runtime validation
+        - Type async functions properly
+        - Handle errors with proper types
+        - Use proper types for API clients

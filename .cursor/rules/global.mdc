@@ -1,0 +1,259 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+
+# .cursor/rules/global.yaml
+
+rules:
+
+- name: 'Core Development Principles'
+  description: 'Global development principles that apply to all code'
+  files: '\*_/_'
+  instructions: |
+  - Follow minimal code principles:
+    - Write absolute minimum code needed
+    - Avoid unnecessary abstractions
+    - Split into smaller functions when logical
+
+  - Write self-documenting code:
+    - Use verbs for functions, nouns for variables
+    - Create single-responsibility components
+    - Make data flow obvious
+    - Add strategic comments only when necessary
+
+  - Follow security best practices:
+    - Never expose sensitive information
+    - Use proper authentication flows
+    - Follow established security patterns
+    - Use environment variables for secrets
+
+  - Optimize for performance:
+    - Follow React optimization guides
+    - Implement proper code splitting
+    - Use appropriate caching strategies
+    - Monitor and optimize bundle size
+
+  - Master the art of abstraction:
+    - Abstract repeated logic into reusable functions, hooks, or utilities
+    - Avoid over-abstraction; wait for patterns to emerge
+    - Encapsulate implementation details behind clean interfaces
+
+  - Write robust and maintainable code:
+    - Use TypeScript for strict type safety
+    - Handle errors gracefully and provide meaningful feedback
+    - Write unit, integration, and end-to-end tests
+
+- name: 'AI Assistant Guidelines'
+  description: 'Guidelines for AI to follow when assisting with code'
+  files: '\*_/_'
+  instructions: |
+  - Before making changes:
+    - Thoroughly explore and understand the codebase structure
+    - Identify existing patterns and conventions
+    - Look for similar implementations before creating new ones
+    - Check for existing utilities, hooks, or components that can be reused
+
+  - When implementing features:
+    - Follow the established project architecture
+    - Maintain consistency with existing code patterns
+    - Respect the monorepo structure (apps/, libs/)
+    - Use the appropriate technology for each part of the stack
+
+  - When suggesting code:
+    - Provide complete, working solutions
+    - Include all necessary imports
+    - Add appropriate error handling
+    - Include TypeScript types
+    - Follow the project's naming conventions
+    - Add comments for complex logic
+
+  - When debugging:
+    - Analyze the problem systematically
+    - Consider edge cases and error conditions
+    - Look for similar patterns in the codebase
+    - Suggest comprehensive fixes, not just symptom treatments
+
+  - When optimizing:
+    - Focus on measurable improvements
+    - Consider both time and space complexity
+    - Maintain readability while improving performance
+    - Document performance-critical code
+
+- name: 'Development Process'
+  description: 'Process guidelines for feature implementation'
+  files: '\*_/_'
+  instructions: |
+  Before implementing any feature:
+  1. Identify core requirement
+  2. Consider 3 implementation approaches
+  3. Choose simplest approach that meets needs
+
+  Verification questions:
+  - Can this be split into smaller functions?
+  - Are there unnecessary abstractions?
+  - Will this be clear to a junior dev?
+
+  - Think about the big picture:
+    - Write code that is easy to extend and modify
+    - Use interfaces or abstract classes to allow for future implementations
+    - Follow security best practices (e.g., sanitize inputs, use HTTPS)
+
+- name: 'Project Architecture'
+  description: 'Guidelines for maintaining project architecture'
+  files: '\*_/_'
+  instructions: |
+  - Respect the monorepo structure:
+    - apps/: Application code (web, api, job-scheduler, etc.)
+    - libs/: Shared libraries and utilities
+    - tools/: Development and build tools
+
+  - Follow module boundaries:
+    - Keep related code together
+    - Avoid circular dependencies
+    - Use proper import paths
+    - Respect the separation of concerns
+
+  - Maintain clear data flow:
+    - Use unidirectional data flow where possible
+    - Make state management explicit and traceable
+    - Document complex data transformations
+    - Use appropriate state management patterns
+
+  - API design principles:
+    - Design APIs for consumers first
+    - Use consistent naming and patterns
+    - Document APIs thoroughly
+    - Version APIs appropriately
+    - Handle backward compatibility
+
+- name: 'TypeScript/React Best Practices'
+  description: 'Best practices for TypeScript and React development'
+  files: '\*_/_.{ts,tsx,js,jsx}'
+  instructions: |
+  - Use functional components with TypeScript:
+    - Avoid class components unless absolutely necessary
+    - Use hooks for state and lifecycle management
+    - Follow single-responsibility principle for components
+
+  - Enforce strict TypeScript types:
+    - Avoid using `any` type
+    - Use interfaces or types for props and state
+    - Use generics where applicable
+    - Create reusable type definitions in dedicated files
+
+  - Follow React best practices:
+    - Use `React.memo` for performance optimization
+    - Use `useCallback` and `useMemo` to prevent unnecessary re-renders
+    - Handle events with `handle` prefix (e.g., `handleClick`)
+    - Implement proper cleanup in useEffect hooks
+
+  - Ensure accessibility:
+    - Use semantic HTML elements
+    - Include proper ARIA attributes
+    - Handle keyboard navigation
+    - Test with screen readers
+    - Follow WCAG guidelines
+
+  - Use styled-components for styling:
+    - Use `class:` instead of ternary operators for conditional classes
+    - Follow styled-components best practices
+    - Use `theme` for styling
+    - Use styled-components for styling components
+
+  - Optimize for performance:
+    - Use lazy loading for components and resources
+    - Memoize expensive calculations or component props
+    - Use efficient data fetching (e.g., pagination, caching, debouncing)
+    - Implement virtualization for long lists
+
+- name: 'Code Quality and Style'
+  description: 'Guidelines for maintaining code quality and style'
+  files: '\*_/_'
+  instructions: |
+  - Use ESLint and Prettier for code consistency:
+    - Follow Airbnb or similar style guides
+    - Fix all linting errors and warnings
+    - Format code automatically on save
+
+  - Follow DRY (Don't Repeat Yourself) principles:
+    - Abstract reusable logic into hooks or utilities
+    - Avoid duplicating code across components
+    - Use shared constants and types
+
+  - Use early returns for readability:
+    - Avoid deeply nested conditionals
+    - Return early for error cases or edge conditions
+    - Keep the main logic clean and concise
+
+  - Use descriptive naming:
+    - Use verbs for functions (e.g., `fetchUserData`)
+    - Use nouns for variables (e.g., `userList`)
+    - Avoid ambiguous or generic names (e.g., `data`, `value`)
+    - Follow established naming patterns in the codebase
+
+  - Write testable code:
+    - Keep functions pure when possible
+    - Avoid side effects
+    - Make dependencies explicit
+    - Use dependency injection
+    - Write unit tests for critical functionality
+
+- name: 'Debugging and Troubleshooting'
+  description: 'Guidelines for effective debugging and troubleshooting'
+  files: '\*_/_'
+  instructions: |
+  - Use structured logging for debugging:
+    - Log key variables and error stacks
+    - Use appropriate log levels
+    - Include context in log messages
+    - Use correlation IDs for request tracing
+
+  - Use performance monitoring tools:
+    - Identify bottlenecks with profiling
+    - Monitor memory usage
+    - Track API response times
+    - Use browser developer tools effectively
+
+  - Implement proper error handling:
+    - Use try/catch blocks appropriately
+    - Provide meaningful error messages
+    - Log errors with context
+    - Implement graceful degradation
+    - Use error boundaries in React
+
+  - Debug methodically:
+    - Isolate the problem
+    - Create minimal reproducible examples
+    - Check recent changes
+    - Use breakpoints and step debugging
+    - Verify assumptions with console logs
+
+- name: 'Collaboration and Documentation'
+  description: 'Guidelines for effective collaboration and documentation'
+  files: '\*_/_'
+  instructions: |
+  - Write code that is easy to review:
+    - Keep PRs small and focused
+    - Break large features into smaller, reviewable chunks
+    - Include clear PR descriptions
+    - Link to relevant issues or documentation
+
+  - Document code effectively:
+    - Use JSDoc comments for functions and interfaces
+    - Document complex algorithms and business logic
+    - Keep documentation up-to-date
+    - Use Storybook for component documentation
+
+  - Follow the team's coding standards:
+    - Use ESLint and Prettier to enforce consistent formatting
+    - Follow established patterns in the codebase
+    - Respect architectural boundaries
+    - Use conventional commit messages
+
+  - Continuously improve:
+    - Refactor code regularly
+    - Address technical debt
+    - Learn from code reviews
+    - Stay updated with industry best practices

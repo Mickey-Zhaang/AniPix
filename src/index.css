@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    'Roboto',
+    system-ui,
+    -apple-system,
+    sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #ffffff;
+}
+
+#root {
+  min-height: 110vh;
+}
+
+/* Custom Scrollbar Styles */
+/* For Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background: #3a2a2a;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0101;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a1a1a;
+  border-radius: 5px;
+  border: 2px solid #0a0101;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3a2a2a;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2a1a1a #0a0101;
+}

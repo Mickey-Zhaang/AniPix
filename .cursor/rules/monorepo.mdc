@@ -1,0 +1,109 @@
+---
+description: Guidelines for working with the monorepo architecture
+globs: '**/*'
+alwaysApply: true
+---
+
+rules:
+
+- name: 'Project Structure'
+  description: 'Guidelines for maintaining the project structure'
+  files: '\*_/_'
+  instructions: |
+  - Respect the project architecture:
+    - src/: Source code directory
+    - components/: Reusable React components
+    - assets/: Static assets and resources
+    - .storybook/: Storybook configuration
+    - public/: Public assets
+
+  - Follow module boundaries:
+    - Keep related code together
+    - Avoid circular dependencies
+    - Use proper import paths
+    - Respect the separation of concerns
+
+  - When adding new code:
+    - Determine if it belongs in components, utils, or assets
+    - Place reusable components in components/ directory
+    - Place utility functions in utils/ directory
+    - Follow existing patterns for similar functionality
+
+  - When importing:
+    - Use relative imports for files in the same directory
+    - Use absolute imports for files in different directories
+    - Follow the established import patterns
+    - Avoid importing from implementation details
+
+- name: 'Source Directory Structure'
+  description: 'Guidelines for the src directory structure'
+  files: 'src/\*_/_'
+  instructions: |
+  - Understand the project structure:
+    - src/: Source code directory
+    - components/: Reusable React components
+    - assets/: Static assets and resources
+    - .storybook/: Storybook configuration
+    - public/: Public assets
+
+  - When working with the project:
+    - Keep related code together in appropriate directories
+    - Extract reusable components to components/ directory
+    - Follow the established patterns
+    - Maintain clean separation of concerns
+
+  - For React components:
+    - Follow React best practices
+    - Use the established component structure
+    - Follow the styling patterns with styled-components
+    - Use the established state management patterns
+
+- name: 'Project Structure'
+  description: 'Guidelines for the project structure'
+  files: 'src/\*_/_'
+  instructions: |
+  - Understand the project structure:
+    - components/: Reusable React components
+    - assets/: Static assets and resources
+    - styles/: Global styles and themes
+    - utils/: Utility functions and helpers
+    - types/: TypeScript type definitions
+
+  - When working with the project:
+    - Keep code organized and focused
+    - Extract reusable components to components/ directory
+    - Document public APIs
+    - Follow the established patterns
+
+  - For shared components:
+    - Make interfaces clear and well-documented
+    - Avoid side effects
+    - Keep dependencies minimal
+    - Write tests for components
+
+  - When adding new components:
+    - Create a clear purpose and scope
+    - Follow the established component structure
+    - Document the component's usage
+    - Provide examples
+
+- name: 'Dependencies Management'
+  description: 'Guidelines for managing dependencies in the project'
+  files: 'package.json'
+  instructions: |
+  - Follow dependency management best practices:
+    - Use pnpm for package management
+    - Keep dependencies up-to-date
+    - Avoid duplicate dependencies
+    - Use peer dependencies appropriately
+
+  - When adding dependencies:
+    - Consider if the dependency is necessary
+    - Check for existing alternatives in the codebase
+    - Add to package.json
+    - Use specific versions
+
+  - For development dependencies:
+    - Add testing and build tools as devDependencies
+    - Keep production dependencies minimal
+    - Use established patterns for tooling

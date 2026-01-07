@@ -1,0 +1,128 @@
+---
+description: Guidelines for maintaining code quality and testing
+globs: '**/*'
+alwaysApply: true
+---
+rules:
+  - name: 'Code Quality Standards'
+    description: 'Guidelines for maintaining high code quality'
+    files: '**/*'
+    instructions: |
+      - Follow code quality best practices:
+        - Write clean, readable code
+        - Follow the DRY (Don't Repeat Yourself) principle
+        - Keep functions small and focused
+        - Use meaningful variable and function names
+        - Add comments for complex logic
+
+      - Use TypeScript effectively:
+        - Use strict type checking
+        - Avoid using `any` type
+        - Create interfaces for complex objects
+        - Use generics where appropriate
+        - Use type guards for runtime type checking
+
+      - Follow established patterns:
+        - Use consistent naming conventions
+        - Follow the project's code style
+        - Use established design patterns
+        - Follow the project's architecture
+
+      - Write maintainable code:
+        - Keep cyclomatic complexity low
+        - Avoid deep nesting
+        - Use early returns
+        - Break complex functions into smaller ones
+        - Use pure functions where possible
+
+  - name: 'Testing Standards'
+    description: 'Guidelines for writing effective tests'
+    files: '**/*.{test,spec}.{ts,tsx,js,jsx}'
+    instructions: |
+      - Write comprehensive tests:
+        - Unit tests for individual functions and components
+        - Integration tests for component interactions
+        - End-to-end tests for critical user flows
+        - Performance tests for critical paths
+
+      - Follow testing best practices:
+        - Use descriptive test names
+        - Follow the AAA pattern (Arrange, Act, Assert)
+        - Test edge cases and error conditions
+        - Mock external dependencies
+        - Use test fixtures for complex data
+
+      - For React component testing:
+        - Test component rendering
+        - Test user interactions
+        - Test state changes
+        - Test error handling
+        - Test accessibility
+
+      - For API testing:
+        - Test happy paths
+        - Test error conditions
+        - Test validation
+        - Test authentication/authorization
+        - Test performance
+
+  - name: 'Code Review Standards'
+    description: 'Guidelines for effective code reviews'
+    files: '**/*'
+    instructions: |
+      - During code reviews, check for:
+        - Adherence to project standards
+        - Potential bugs and edge cases
+        - Error handling
+        - Security issues
+        - Performance considerations
+        - Code duplication
+        - Proper testing
+
+      - For TypeScript code, verify:
+        - Type safety
+        - Proper use of generics
+        - Absence of `any` type
+        - Null/undefined handling
+        - Proper interface/type definitions
+        - Proper use of type guards
+
+      - For React code, check:
+        - Component structure
+        - Hook dependencies
+        - Performance optimizations
+        - Accessibility
+        - State management
+        - Proper cleanup
+        - Error boundaries
+
+  - name: 'Performance Optimization'
+    description: 'Guidelines for optimizing performance'
+    files: '**/*'
+    instructions: |
+      - Optimize frontend performance:
+        - Use React.memo for expensive components
+        - Use useCallback and useMemo appropriately
+        - Implement code splitting and lazy loading
+        - Optimize bundle size
+        - Use virtualization for long lists
+        - Optimize images and assets
+        - Implement proper caching
+
+      - Optimize backend performance:
+        - Use efficient database queries
+        - Implement proper caching
+        - Use pagination for large data sets
+        - Optimize API response times
+        - Use proper indexing
+        - Implement rate limiting
+        - Monitor and optimize resource usage
+
+      - Optimize network performance:
+        - Minimize API calls
+        - Use batching for multiple requests
+        - Implement proper caching
+        - Use compression
+        - Optimize payload size
+        - Use HTTP/2 or HTTP/3
+        - Implement proper CDN usage 
