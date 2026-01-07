@@ -1,72 +1,36 @@
-# React TypeScript Boilerplate
+# AniPix
 
-A modern, production-ready React application boilerplate built with TypeScript, featuring comprehensive development tooling, animation support, and best practices out of the box.
+A modern web-based animation tool for creating and previewing pixel art animations from tilesheet images. Import your sprite sheets, extract individual frames, and animate them with customizable frame rates.
 
-## 🚀 Features
+## 🎨 Features
 
-### Core Framework & Language
+### Core Functionality
 
-- **React 19.1.1** - Latest React with modern features and performance improvements
-- **TypeScript 5.8.3** - Full type safety with strict mode enabled
-- **Vite 7.1.2** - Lightning-fast build tool with HMR (Hot Module Replacement)
-- **ES2022** - Modern JavaScript features and syntax
+- **Tilesheet Import**: Import image files (tilesheets) and organize them as elements
+- **Frame Extraction**: Automatically extract individual frames from tilesheets based on customizable width and height settings
+- **Frame Management**:
+  - View all extracted frames in a horizontal scrolling container
+  - Drag and drop to reorder frames
+  - Select frames to view in the main display
+  - Delete individual frames
+- **Animation Preview**:
+  - Play/pause animation controls
+  - Customizable FPS (frames per second) settings
+  - Automatic frame cycling through all extracted frames
+- **Project Settings**:
+  - Configure frame width and height
+  - Adjust animation FPS (1-120)
+  - Settings are applied globally across the application
 
-### Styling & UI
+### User Interface
 
-- **Styled Components 6.1.19** - CSS-in-JS with TypeScript support
-
-### Animation
-
-- **GSAP 3.14.2** - Professional-grade animation library for CSS, DOM, and SVG animations
-  - Supports timeline-based animations
-  - Scroll-triggered animations
-  - Performance-optimized animations
-
-### Component Development
-
-- **Storybook 8.6.14** - Component documentation and testing environment
-  - Interactive component playground
-  - Accessibility testing addon
-  - Documentation generation
-  - Theme support
-  - Responsive testing
-
-### Code Quality & Formatting
-
-- **ESLint 9.33.0** - Modern flat config with TypeScript support
-  - React Hooks linting rules
-  - React Refresh plugin for Vite
-  - Prettier integration
-  - TypeScript ESLint rules
-- **Prettier 3.6.2** - Code formatter with import sorting
-  - Automatic import organization via `@trivago/prettier-plugin-sort-imports`
-  - Consistent code style across the project
-  - Universal line ending support (`auto`)
-  - Import order: React → React-related → Path aliases → Relative imports
-
-### Testing
-
-- **Vitest 3.2.4** - Fast unit testing framework
-  - Browser testing support
-  - Code coverage with V8
-  - Playwright integration for E2E testing
-
-### Build & Development Tools
-
-- **Vite Plugins**:
-  - `@vitejs/plugin-react` - React Fast Refresh support
-  - `vite-plugin-svgr` - SVG as React components
-  - `vite-tsconfig-paths` - TypeScript path alias resolution
-- **TypeScript Configuration**:
-  - Strict mode enabled
-  - Unused variable/parameter detection
-  - Modern module resolution (bundler mode)
-  - React JSX transform
-
-### Package Management
-
-- **pnpm 10.15.0** - Fast, disk space efficient package manager
-- **Workspace Support** - Ready for monorepo setup
+- **Three-Panel Layout**:
+  - **Left Sidebar (Tools)**: Import, download, and animation controls
+  - **Center Display**: Shows the currently selected frame, scaled for visibility
+  - **Right Sidebar (Elements)**:
+    - Lists all imported elements (tilesheets)
+    - Project settings panel at the bottom
+- **Bottom Panel (Frames)**: Horizontal scrolling container displaying all extracted frames from the selected element
 
 ## 🛠️ Tech Stack
 
@@ -76,11 +40,6 @@ A modern, production-ready React application boilerplate built with TypeScript, 
 | **Language**           | TypeScript        | 5.8.3   |
 | **Build Tool**         | Vite              | 7.1.2   |
 | **Styling**            | styled-components | 6.1.19  |
-| **Animation**          | GSAP              | 3.14.2  |
-| **Testing**            | Vitest            | 3.2.4   |
-| **Component Docs**     | Storybook         | 8.6.14  |
-| **Linting**            | ESLint            | 9.33.0  |
-| **Formatting**         | Prettier          | 3.6.2   |
 | **Package Manager**    | pnpm              | 10.15.0 |
 
 ## 📁 Project Structure
@@ -88,28 +47,27 @@ A modern, production-ready React application boilerplate built with TypeScript, 
 ```
 AniPix/
 ├── src/
-│   ├── components/          # Reusable React components
-│   │   ├── index.ts        # Component exports
-│   │   └── *.tsx           # Component files
-│   ├── assets/             # Static assets and resources
-│   │   └── index.ts        # Asset exports
-│   ├── App.tsx             # Main application component
-│   ├── App.css             # App-specific styles
-│   ├── main.tsx           # Application entry point
-│   ├── index.css          # Global styles & scrollbar
-│   └── vite-env.d.ts      # Vite type definitions
-├── .storybook/             # Storybook configuration
-│   ├── main.ts            # Storybook main config
-│   ├── preview.ts         # Storybook preview config
-│   └── preview-head.html  # Storybook head HTML
-├── index.html             # HTML entry point
-├── vite.config.ts         # Vite configuration
-├── tsconfig.json          # TypeScript root config
-├── tsconfig.app.json      # TypeScript app config
-├── tsconfig.node.json     # TypeScript node config
-├── eslint.config.js       # ESLint configuration
-├── .prettierrc            # Prettier configuration
-└── package.json           # Dependencies & scripts
+│   ├── components/
+│   │   ├── Display/          # Main display section for selected frames
+│   │   ├── Elements/          # Element management (tilesheets)
+│   │   │   ├── AllElements.tsx
+│   │   │   ├── Element.tsx
+│   │   │   ├── ElementsContext.tsx
+│   │   │   ├── ProjectSettingsPanel.tsx
+│   │   │   └── ...
+│   │   ├── Frames/            # Frame extraction and management
+│   │   │   ├── AllFrames.tsx
+│   │   │   ├── Frame.tsx
+│   │   │   ├── extractFrames.ts
+│   │   │   ├── FramesContext.tsx
+│   │   │   └── ...
+│   │   ├── Tools/             # Tool buttons (import, download, animate)
+│   │   └── shared/            # Shared styled components
+│   ├── assets/                # SVG icons and assets
+│   ├── App.tsx                # Main application component
+│   └── main.tsx               # Application entry point
+├── vite.config.ts            # Vite configuration
+└── package.json               # Dependencies & scripts
 ```
 
 ## 🚀 Getting Started
@@ -121,7 +79,7 @@ AniPix/
 
 ### Installation
 
-1. **Clone or use this template**
+1. **Clone the repository**
 
    ```bash
    git clone <repository-url>
@@ -140,179 +98,91 @@ AniPix/
    pnpm serve
    ```
 
-   The app will be available at `http://localhost:5173` (Vite default port)
+   The app will be available at `http://localhost:5173`
 
 ## 📚 Available Scripts
 
-| Script                 | Description                                          |
-| ---------------------- | ---------------------------------------------------- |
-| `pnpm serve`           | Start Vite development server with HMR               |
-| `pnpm build`           | Build for production (TypeScript check + Vite build) |
-| `pnpm preview`         | Preview production build locally                     |
-| `pnpm lint`            | Run ESLint to check code quality                     |
-| `pnpm lint:fix`        | Run ESLint and auto-fix issues                       |
-| `pnpm format`          | Format all code with Prettier                        |
-| `pnpm format:check`    | Check if code is formatted (CI-friendly)             |
-| `pnpm storybook`       | Start Storybook dev server on port 6006              |
-| `pnpm build-storybook` | Build static Storybook for deployment                |
+| Script              | Description                            |
+| ------------------- | -------------------------------------- |
+| `pnpm serve`        | Start Vite development server with HMR |
+| `pnpm build`        | Build for production                   |
+| `pnpm preview`      | Preview production build locally       |
+| `pnpm lint`         | Run ESLint to check code quality       |
+| `pnpm lint:fix`     | Run ESLint and auto-fix issues         |
+| `pnpm format`       | Format all code with Prettier          |
+| `pnpm format:check` | Check if code is formatted             |
 
-## 🎨 Key Features Explained
+## 🎯 How to Use
 
-### TypeScript Strict Mode
+### Importing Tilesheets
 
-The project uses TypeScript's strict mode with additional checks:
+1. Click the **Import** button in the left sidebar
+2. Select one or more image files from your computer
+3. Imported images will appear in the right sidebar as "Elements"
 
-- `strict: true` - All strict type checking options enabled
-- `noUnusedLocals` - Error on unused local variables
-- `noUnusedParameters` - Error on unused function parameters
-- `noFallthroughCasesInSwitch` - Error on switch case fallthrough
+### Extracting Frames
 
-### Code Formatting & Import Organization
+1. **Select an element** from the right sidebar
+2. The application will automatically extract frames based on your project settings:
+   - Set the **Width** and **Height** in the Project Settings panel (bottom of right sidebar)
+   - Frames are extracted using these dimensions as tile sizes
+3. Extracted frames will appear in the bottom panel
 
-Prettier is configured with automatic import sorting:
+### Viewing Frames
 
-- React imports first
-- React-related packages next
-- Path aliases (`@/`)
-- Relative imports last
-- Automatic import separation and specifier sorting
+- Click on any frame in the bottom panel to view it in the main display area
+- The display automatically scales frames for better visibility
 
-### Custom Scrollbar
+### Animating
 
-A sleek, dark-themed scrollbar is included:
+1. Ensure you have frames extracted from a selected element
+2. Click the **Play** button in the left sidebar to start animation
+3. The animation will cycle through all frames at the FPS rate set in Project Settings
+4. Click **Pause** to stop the animation
+5. Adjust the **FPS** slider in Project Settings to change animation speed
 
-- **Chrome/Safari/Edge**: Custom webkit scrollbar styling
-- **Firefox**: Native scrollbar color customization
-- Dark theme optimized for modern UIs
-- Hover effects for better UX
+### Managing Elements and Frames
 
-### GSAP Animation Library
+- **Delete Elements**: Hover over an element and click the × button
+- **Delete Frames**: Hover over a frame and click the × button
+- **Reorder Frames**: Drag and drop frames in the bottom panel to reorder them
 
-GSAP is pre-installed and ready to use:
+## 🏗️ Architecture
 
-```typescript
-import { gsap } from 'gsap';
+### State Management
 
-// Animate CSS properties
-gsap.to(element, { x: 100, duration: 1 });
+The application uses React Context API for state management:
 
-// Timeline animations
-const tl = gsap.timeline();
-tl.to(element1, { opacity: 0 }).to(element2, { y: 50 });
-```
+- **ElementsContext**: Manages imported tilesheet images (elements)
+- **FramesContext**: Manages extracted frames from selected elements
+- **ProjectSettingsContext**: Manages global project settings (width, height, FPS)
 
-### Styled Components Best Practices
+### Frame Extraction
 
-- Use `$` prefix for styled-component props to avoid DOM warnings
-- TypeScript interfaces for styled component props
-- Template literals for conditional styling
+Frames are extracted using the HTML5 Canvas API:
 
-## 🎯 Development Guidelines
+1. Load the selected element's image
+2. Calculate grid dimensions based on project width/height settings
+3. Extract each tile using `canvas.drawImage()` with appropriate source coordinates
+4. Convert each extracted tile to a data URL
+5. Store frames in the FramesContext
 
-### Code Style
+### Component Organization
 
-- **TypeScript**: Strict mode, avoid `any` type
-- **React**: Functional components with hooks
-- **Styling**: styled-components with TypeScript support
-- **Naming**: PascalCase for components, camelCase for functions
-- **Imports**: Automatically sorted by Prettier
+- **Tools**: Reusable tool buttons with shared styling
+- **Elements**: Element list and project settings
+- **Frames**: Frame extraction, display, and management
+- **Display**: Main viewing area
+- **Shared**: Common styled components (buttons, empty states, etc.)
 
-### Component Best Practices
+## 🎨 Styling
 
-1. **Single Responsibility**: One component, one purpose
-2. **TypeScript Interfaces**: Always define props interfaces
-3. **Accessibility**: Include ARIA attributes and keyboard navigation
-4. **Performance**: Use React.memo, useCallback, useMemo when needed
-5. **Storybook**: Create stories for component documentation
+The application uses `styled-components` for CSS-in-JS styling:
 
-### Styled Components Guidelines
-
-```typescript
-// ✅ Good: Prefix styled props with $
-interface StyledButtonProps {
-  $variant: 'primary' | 'secondary';
-  $disabled: boolean;
-}
-
-const StyledButton = styled.button<StyledButtonProps>`
-  background: ${({ $variant }) =>
-    $variant === 'primary' ? '#2563eb' : '#4b5563'};
-`;
-```
-
-## 🧪 Testing
-
-### Running Tests
-
-```bash
-# Run tests
-pnpm test
-
-# Run tests in watch mode
-pnpm test:watch
-
-# Run tests with coverage
-pnpm test:coverage
-```
-
-### Testing Guidelines
-
-- **Unit Tests**: Test individual component behavior
-- **Integration Tests**: Test component interactions
-- **Accessibility Tests**: Use Storybook's accessibility addon
-- **Visual Tests**: Use Storybook for visual regression testing
-
-## 📖 Storybook
-
-### Starting Storybook
-
-```bash
-pnpm storybook
-```
-
-Storybook will be available at `http://localhost:6006`
-
-### Storybook Features
-
-- **Component Showcase**: Visual documentation of all components
-- **Interactive Testing**: Test component variants and states
-- **Accessibility Testing**: Built-in accessibility checks
-- **Responsive Testing**: Test components at different screen sizes
-- **Theme Support**: Test components with different themes
-- **Auto-documentation**: Automatic documentation generation
-
-## 🎬 Animation with GSAP
-
-### Basic Usage
-
-```typescript
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-
-function AnimatedComponent() {
-  const elementRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (elementRef.current) {
-      gsap.to(elementRef.current, {
-        x: 100,
-        rotation: 360,
-        duration: 2,
-        ease: "power2.out"
-      });
-    }
-  }, []);
-
-  return <div ref={elementRef}>Animated</div>;
-}
-```
-
-### Advanced Features
-
-- **ScrollTrigger**: Scroll-based animations
-- **Timeline**: Complex animation sequences
-- **Plugins**: Text, Morph, DrawSVG, and more
-- **Performance**: Hardware-accelerated animations
+- Dark theme with subtle borders and hover effects
+- Responsive layout that adapts to different screen sizes
+- Custom scrollbars for better visual integration
+- Consistent spacing and typography throughout
 
 ## 🚀 Deployment
 
@@ -330,59 +200,24 @@ The built files will be in the `dist/` directory, optimized and ready for deploy
 - **Netlify**: Easy deployment with form handling
 - **GitHub Pages**: Free hosting for public repositories
 - **Firebase Hosting**: Google's hosting solution
-- **AWS S3 + CloudFront**: Scalable static hosting
-- **Azure Static Web Apps**: Microsoft's hosting solution
 
-## 🔧 Configuration Files
+## 🔧 Development
 
-### TypeScript
+### Code Style
 
-- `tsconfig.json` - Root TypeScript configuration
-- `tsconfig.app.json` - Application-specific TypeScript config
-- `tsconfig.node.json` - Node.js tooling TypeScript config
+- **TypeScript**: Strict mode enabled, avoid `any` type
+- **React**: Functional components with hooks
+- **Styling**: styled-components with TypeScript support
+- **Naming**: PascalCase for components, camelCase for functions
 
-### ESLint
+### Key Patterns
 
-- `eslint.config.js` - Modern flat config format
-- Integrated with Prettier to avoid conflicts
-- React Hooks and TypeScript rules enabled
+- **Context Providers**: Used for global state management
+- **Custom Hooks**: Extract reusable logic (e.g., `useElements`, `useFrames`)
+- **Styled Components**: All styling done with styled-components
+- **Type Safety**: Full TypeScript coverage with strict mode
 
-### Prettier
-
-- `.prettierrc` - Code formatting rules
-- Import sorting plugin configured
-- Universal line ending support
-
-### Vite
-
-- `vite.config.ts` - Build configuration
-- React plugin for Fast Refresh
-- SVG as React components support
-- TypeScript path alias resolution
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes
-4. Run `pnpm format` and `pnpm lint:fix` before committing
-5. Commit your changes (`git commit -m 'feat: Add amazing feature'`)
-6. Push to the branch (`git push origin feature/amazing-feature`)
-7. Open a Pull Request
-
-### Commit Message Convention
-
-Use conventional commit messages:
-
-- `feat:` New features
-- `fix:` Bug fixes
-- `docs:` Documentation changes
-- `style:` Code style changes (formatting)
-- `refactor:` Code refactoring
-- `test:` Test additions or changes
-- `chore:` Build process or auxiliary tool changes
-
-## 📄 License
+## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
@@ -391,25 +226,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [React](https://reactjs.org/) - UI library
 - [TypeScript](https://www.typescriptlang.org/) - Type safety
 - [Vite](https://vitejs.dev/) - Build tool
-- [GSAP](https://greensock.com/gsap/) - Animation library
 - [styled-components](https://styled-components.com/) - CSS-in-JS
-- [Storybook](https://storybook.js.org/) - Component documentation
-- [Vitest](https://vitest.dev/) - Testing framework
-- [ESLint](https://eslint.org/) - Code linting
-- [Prettier](https://prettier.io/) - Code formatting
-
-## 📝 Template Usage
-
-This boilerplate provides a solid foundation for building modern React applications with:
-
-- ✅ **Production-ready setup** with optimized build configuration
-- ✅ **Animation support** with GSAP
-- ✅ **Component library** with Storybook documentation
-- ✅ **Type safety** with strict TypeScript configuration
-- ✅ **Code quality** with ESLint and Prettier
-- ✅ **Testing infrastructure** with Vitest
-- ✅ **Modern styling** with styled-components
-- ✅ **Custom UI elements** (scrollbar, fonts)
-- ✅ **Developer experience** with HMR and fast builds
-
-Use this template as a starting point for your next React project!
