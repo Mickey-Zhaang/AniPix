@@ -43,8 +43,8 @@ export const DisplaySection: React.FC = () => {
 const DisplayContainer = styled.div`
 	position: fixed;
 	top: 0;
-	left: 5%;
-	right: 15%;
+	left: max(60px, min(5%, 85px));
+	right: max(140px, min(15%, 270px));
 	bottom: 25vh;
 	display: flex;
 	align-items: center;

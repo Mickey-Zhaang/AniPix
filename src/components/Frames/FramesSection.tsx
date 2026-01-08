@@ -21,8 +21,8 @@ export const FramesSection: React.FC = () => {
 const FramesContainer = styled.div`
 	position: fixed;
 	bottom: 0;
-	left: 5%;
-	right: max(15%, 140px);
+	left: max(60px, min(5%, 85px));
+	right: max(140px, min(15%, 270px));
 	height: 25vh;
 	display: flex;
 	flex-direction: column;
